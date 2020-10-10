@@ -141,3 +141,8 @@ Change the disk and partition as per your requirement.
 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=gentoo --recheck --no-floppy --debug
 
+
+# Boot screen look like this :
+
+![Screenshot](UEFI_Boot.png)
+
