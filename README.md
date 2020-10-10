@@ -53,7 +53,7 @@ ArchLinux      Boot   debian      Gentoo      goofiboot  opensuse.nsh  Shell.efi
 archlinux.nsh  certs  debian.nsh  gentoo.nsh  opensuse   refind    slackware  
 
 
-Now if I entereed any of those OS directory  , the content will be like this :
+Now if I entered any of those OS directory  , the content will be like this :
 
 
 initramfs-ArchLinux-5.8.14.img  vmlinuz-ArchLinux-5.8.14
