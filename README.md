@@ -28,9 +28,9 @@ Please change the "EFI_Partiton" to actual partition number , that might /dev/sd
 
 The .conf files for the specific OS has to reside in the /boot/efi/loader/entries directory and it looks like this :
 
-
+```
 ArchLinux.conf  Debian.conf  Gentoo.conf  Opensuse.conf  Slackware.conf  Tools.conf  UEFI-shell.conf
-
+```
 
 There is also a "loader" directory under /boot/efi/ , which consist a file called "loader.conf"
 ```
