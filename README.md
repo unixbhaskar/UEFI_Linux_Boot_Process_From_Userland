@@ -15,13 +15,13 @@ Then, please create a efi directory in /boot directory then mount the EFI partit
 
 
 To make it more consistent, please put an entry in /etc/fstab like this :
-
+```
 UUID="83BB-469F"  /boot/efi       vfat    umask=0077      0       1
 
 OR
 
 /dev/EFI_Partition  /boot/efi       vfat    umask=0077      0       1
-
+```
 
 Please change the "EFI_Partiton" to actual partition number , that might /dev/sda1 or /dev/sda2 
 
@@ -33,13 +33,13 @@ ArchLinux.conf  Debian.conf  Gentoo.conf  Opensuse.conf  Slackware.conf  Tools.c
 
 
 There is also a "loader" directory under /boot/efi/ , which consist a file called "loader.conf"
-
+```
 timeout 5
 
 default Gentoo
 
 console-mode keep
-
+```
 
 This is bare minimal. You can replace the OS of your choice in the default entry, so , the curson will always place on it.
  
@@ -47,17 +47,17 @@ This is bare minimal. You can replace the OS of your choice in the default entry
 
 Here is how the EFI folder content looks like , which reside in /boot/efi/  ...basically holding the kernel and initrd images
 
-
+```
 
 ArchLinux      Boot   debian      Gentoo      goofiboot  opensuse.nsh  Shell.efi  slackware.nsh  tools
 archlinux.nsh  certs  debian.nsh  gentoo.nsh  opensuse   refind    slackware  
-
+```
 
 Now if I entered any of those OS directory  , the content will be like this :
 
-
+```
 initramfs-ArchLinux-5.8.14.img  vmlinuz-ArchLinux-5.8.14
-
+```
 
 
 So, basically if the building mechanism of kernel not putting the kernel image and initrd image in the specific direcotry in EFI(I believe modern distros does put in)
@@ -72,7 +72,7 @@ Install "efibootmgr" package/software in your computer to see the thing about UE
 Here is how it look like , when you fire the "efibootmgr" from cli with the -v option:
 
 
-
+```
 efibootmgr -v
 
 BootCurrent: 0013
@@ -126,21 +126,21 @@ Boot0014* elilo HD(3,GPT,0c5344f1-db24-4668-aef2-9f007e93caac,0x3ff4a800,0x20000
 Boot0015* EFIBoot       HD(3,GPT,0c5344f1-db24-4668-aef2-9f007e93caac,0x3ff4a800,0x200000)/File(\EFI\Boot\BOOTX64.EFI)
 
 Boot0016* rEFInd Boot Manager   HD(3,GPT,0c5344f1-db24-4668-aef2-9f007e93caac,0x3ff4a800,0x200000)/File(\EFI\refind\refind_x64.efi)
-
+```
 
 
 # You can create direct boot entry by efibootmgr 
-
+```
 efibootmgr -c -d /dev/sda -p 1 -L "Arch Linux" -l '\EFI\arch\vmlinuz-arch.efi' -u root=/dev/sda3 ro initrd=EFI/arch/initramfs-arch.img
-
+```
 
 Change the disk and partition as per your requirement.
 
 
 # Install Grub to the efi partition to use it
-
+```
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=gentoo --recheck --no-floppy --debug
-
+```
 
 # Boot screen look like this :
 
