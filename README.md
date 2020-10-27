@@ -41,7 +41,7 @@ default Gentoo
 console-mode keep
 ```
 
-This is bare minimal. You can replace the OS of your choice in the default entry, so , the curson will always place on it.
+This is bare minimal. You can replace the OS of your choice in the default entry, so , the cursor will always place on it.
  
 
 
